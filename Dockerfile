@@ -5,7 +5,7 @@ WORKDIR /app
 COPY . .
 
 
-RUN pip install requests beautifulsoup4 kafka-python fastapi uvicorn
+RUN pip install -r requirements.txt
 
 CMD ["python", "scraper.py"]
 

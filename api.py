@@ -21,7 +21,7 @@ class Product(BaseModel):
 
 @app.get("/", response_model=List[Product])
 def home():
-    data = load_data_from_json('data.json')
+    data = load_data_from_json('/app/data/data.json')
     return data
 
 if __name__ == "__main__":

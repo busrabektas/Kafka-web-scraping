@@ -53,7 +53,7 @@ def create_topic():
             return
         except NoBrokersAvailable:
             print("No brokers available. Retrying in 5 seconds...")
-            time.sleep(5)
+            time.sleep(0.5)
 
     raise Exception("Failed to connect to Kafka brokers after several retries")
 
@@ -110,8 +110,9 @@ def scrape_data():
         producer.flush()
         print("done")
 
-        
-    with open('data.json', 'w', encoding='utf-8') as file:
+    
+    json_path = '/app/data/data.json'    
+    with open(json_path, 'w', encoding='utf-8') as file:
         json.dump(product_infos, file, ensure_ascii=False, indent=2)
 
     #### show topic messages

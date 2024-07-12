@@ -29,6 +29,9 @@ services:
     depends_on:
       - kafka
     restart: on-failure
+    volumes:
+      - data_volume:/app/data
+
 
   fastapi:
     build: .
@@ -38,4 +41,9 @@ services:
       - "8000:8000"
     depends_on:
        - scraper
-  
+
+    volumes:
+      - data_volume:/app/data
+
+volumes:
+  data_volume:
