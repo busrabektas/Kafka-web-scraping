@@ -35,7 +35,7 @@ This project can be build by simply running this command:
 
     ![alt text](images/seventh_.png)
 
-### TASK 2 AND TASK3
+### TASK 2 AND TASK 3
 
 This docker container have 4 images. `digital-zookeeper-1` is needed for `digital-kafka-1` image. This two image is the core for this project. Because in the end we'll send scraped data to Kafka topic. `digital-scraper-1` image simply run `scraper.py` file. In this file we create KafkaAdminClient to create a topic called 'digitalbrain'. And after scraping data we send every product's json data to this 'digitalbrain' topic as message. With `flush()` next item is not going to topic before all current data is sended. And inside this image you can see the process. After sending messages to topic, we listen/see data in 'digitalbrain' topic and write data inside the app volume as `data.json`. So after all this process this image will be exited and the data.json file written in app volume will be used for `digital-fastapi-1` image. Inside this image use the [link](http://0.0.0.0:8000) to see data in topic. I used Fastapi to write this api since it's fast and easy to begin with.
 
