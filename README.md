@@ -58,7 +58,7 @@ For web scraping part I used **BeautifulSoup** library. It's more efficent and f
 
 #### The view of the API that contains data that scraped
 
+![alt text](images/api_1.png)
 
-![alt text](images/api1.png)
 
-![alt text](images/api2.png)
+![alt text](images/api_2.png)
